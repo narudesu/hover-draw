@@ -1,22 +1,19 @@
 
 .grid {
-  min-width: 320px;
-  min-height: 320px;
-  max-height: 320px;
-  max-width: 320px;
+  min-width: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .square {
   float: left;
-  min-width: 41px;
-  min-height: 41px;
   background-color: aqua;
+  padding: 5px;
 }
 
 .square:nth-child(odd) {
   background-color: aquamarine;
 }
-
-.square:nth-child()
