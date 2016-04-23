@@ -45,3 +45,21 @@ function buildGridB(x, y) {
     .outerWidth(squareWidth)
     .outerHeight(squareWidth);
 }
+
+function buildGridC(x, y) {
+  "use strict"; // this grid generation method uses display: inline-block
+  var grid = $(".grid#3");
+  for (var i = 0; i < x * y; i += 1) {
+    // fill the grid with squares
+    var square = $("<div></div>");
+    square.addClass('square');
+    square.appendTo(grid);
+  }
+  var gridWidth = $(".grid#3").outerWidth();
+  var squareWidth = gridWidth / x;
+  $(".grid#3 > .square")
+    .outerWidth(squareWidth)
+    .outerHeight(squareWidth);
+  // $("head").append("<style id='computedCSS'>.square { width:" + squareWidth + "px; height:" + squareWidth + "px; }</style>")
+
+}
