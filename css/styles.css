@@ -1,3 +1,11 @@
+h1 {
+  font-family: Ubuntu;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
 
 .grid {
   min-width: 400px;
@@ -11,9 +19,16 @@
 .square {
   float: left;
   background-color: aqua;
-  padding: 5px;
+  border: 1px solid limegreen;
+}
+
+td > .square {
 }
 
 .square:nth-child(odd) {
   background-color: aquamarine;
+}
+
+.grid#3 > .square {
+  display: inline-block;
 }
