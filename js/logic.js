@@ -1,32 +1,30 @@
 $(document).ready(function() {
   "use strict";
-  buildGridA(5, 4);
-  buildGridB(5, 4);
-  buildGridC(5, 4);
+  buildGridInlineBlock(5, 4); // TODO: Have fun. Hover.
 });
 
 
-function buildGridA(x, y) {
+function buildGridFloat(x, y) {
   "use strict"; // this grid generation method uses floats
-  var grid = $(".grid#1");
+  var grid = $(".grid-float");
   for (var i = 0; i < x * y; i += 1) {
     // fill the grid with squares
     var square = $("<div></div>");
     square.addClass('square');
     square.appendTo(grid);
   }
-  var gridWidth = $(".grid#1").outerWidth();
+  var gridWidth = $(".grid-float").outerWidth();
   var squareWidth = gridWidth / x;
-  $(".grid#1 > .square")
+  $(".grid-float > .square")
     .outerWidth(squareWidth)
     .outerHeight(squareWidth);
   // $("head").append("<style id='computedCSS'>.square { width:" + squareWidth + "px; height:" + squareWidth + "px; }</style>")
 
 }
 
-function buildGridB(x, y) {
+function buildGridTable(x, y) {
   "use strict"; // this grid generation method uses a table
-  var table = $(".grid#2 > table");
+  var table = $("<table></table>");
   for (var i = 0; i < y; i++) {
     // creates the table rows
     var tr = $("<tr></tr>");
@@ -39,25 +37,26 @@ function buildGridB(x, y) {
     }
     tr.appendTo(table);
   }
-  var gridWidth = $(".grid#2").outerWidth();
+  table.appendTo(".grid-table");
+  var gridWidth = $(".grid-table").outerWidth();
   var squareWidth = gridWidth / x;
-  $(".grid#2 > table > tbody > tr > td > .square")
+  $(".grid-table > table > tbody > tr > td > .square")
     .outerWidth(squareWidth)
     .outerHeight(squareWidth);
 }
 
-function buildGridC(x, y) {
+function buildGridInlineBlock(x, y) {
   "use strict"; // this grid generation method uses display: inline-block
-  var grid = $(".grid#3");
+  var grid = $(".grid-inline-block");
   for (var i = 0; i < x * y; i += 1) {
     // fill the grid with squares
     var square = $("<div></div>");
     square.addClass('square');
     square.appendTo(grid);
   }
-  var gridWidth = $(".grid#3").outerWidth();
+  var gridWidth = $(".grid-inline-block").outerWidth();
   var squareWidth = gridWidth / x;
-  $(".grid#3 > .square")
+  $(".grid-inline-block > .square")
     .outerWidth(squareWidth)
     .outerHeight(squareWidth);
   // $("head").append("<style id='computedCSS'>.square { width:" + squareWidth + "px; height:" + squareWidth + "px; }</style>")
