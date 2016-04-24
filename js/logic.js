@@ -1,7 +1,14 @@
 $(document).ready(function() {
   "use strict";
-  buildGridInlineBlock(5, 4); // TODO: Have fun. Hover.
+  buildGridInlineBlock(64, 64); // TODO: Have fun. Hover.
+  establishSquareHover();
+  establishClearButton();
 });
+
+function nextRandom(x) {
+  return Math.floor(Math.random() * x);
+}
+
 
 
 function buildGridFloat(x, y) {
@@ -61,4 +68,32 @@ function buildGridInlineBlock(x, y) {
     .outerHeight(squareWidth);
   // $("head").append("<style id='computedCSS'>.square { width:" + squareWidth + "px; height:" + squareWidth + "px; }</style>")
 
+}
+
+function establishSquareHover() {
+  "use strict";
+  $(".square").mouseenter(function() {
+    var square = $(this);
+    if (!square.hasClass("colored")) {
+      var randomColor = "#" + nextRandom(16777215).toString(16);
+      square.css({
+        "background-color": randomColor
+      });
+      square.addClass("colored");
+    } else {
+      var color = square.css("background-color");
+      square.css(
+        {"background-color": ColorLuminance(rgbToHex(color), -0.2)}
+      );
+    }
+  });
+}
+
+function establishClearButton() {
+  $(".btn-clear").click(function() {
+    $(".grid").html("");
+    var width = prompt("How big grid do you want?");
+    buildGridInlineBlock(width, width);
+    establishSquareHover();
+  });
 }
